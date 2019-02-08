@@ -27,6 +27,7 @@ from electrum.i18n import _
 from electrum.util import format_time, pr_tooltips, PR_UNPAID
 from electrum.lnutil import lndecode
 from electrum.bitcoin import COIN
+from electrum import constants
 
 from .util import *
 
