@@ -37,7 +37,7 @@ from . import ecc, bitcoin, constants, segwit_addr
 from .util import print_error, profiler, to_bytes, bh2u, bfh
 from .bitcoin import (TYPE_ADDRESS, TYPE_PUBKEY, TYPE_SCRIPT, hash_160,
                       hash160_to_p2sh, hash160_to_p2pkh, hash_to_segwit_addr,
-                      hash_encode, var_int, TOTAL_COIN_SUPPLY_LIMIT_IN_BTC, COIN,
+                      hash_encode, var_int, TOTAL_COIN_SUPPLY_LIMIT_IN_DGB, COIN,
                       push_script, int_to_hex, push_script, b58_address_to_hash160)
 from .crypto import sha256d
 from .keystore import xpubkey_to_address, xpubkey_to_pubkey
@@ -599,7 +599,7 @@ def parse_witness(vds, txin, full_parse: bool):
 def parse_output(vds, i):
     d = {}
     d['value'] = vds.read_int64()
-    if d['value'] > TOTAL_COIN_SUPPLY_LIMIT_IN_BTC * COIN:
+    if d['value'] > TOTAL_COIN_SUPPLY_LIMIT_IN_DGB * COIN:
         raise SerializationError('invalid output amount (too large)')
     if d['value'] < 0:
         raise SerializationError('invalid output amount (negative)')
