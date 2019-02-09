@@ -350,7 +350,7 @@ class Interface(PrintError):
         if can_return_early and index in self._requested_chunks:
             return
         self.print_error("requesting chunk from height {}".format(height))
-        size = 8064
+        size = 4100
         if tip is not None:
             size = min(size, tip - index * 2016 + 1)
             size = max(size, 0)
